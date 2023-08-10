@@ -20,10 +20,10 @@ const DataUploadForm = () => {
     if (file) {
       try {
         const formData = new FormData();
-        formData.append('csvFile', file);
+        formData.append('file', file);
         formData.append('interval', selectedInterval);
 
-        const response = await axios.post('/upload', formData, {
+        const response = await axios.post('display/upload/', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

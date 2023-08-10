@@ -1,17 +1,22 @@
 import React, { useState,useEffect } from 'react';
 import SignedInHeader from "../layout/signedInHeader";
+import axios from 'axios';
 
 const StockTable = () => {
   // Dummy stock data for the dropdown
-  const [stockSymbols,setstockSymbols] = useState([]);
+  const [stockSymbols,setStockSymbols] = useState([]);
   // Initial state
   const [selectedStock, setSelectedStock] = useState(stockSymbols[0]);
 
   // Dummy table data (replace with actual stock data)
-  const [tableData,settableData] = useState([]);
+  const [tableData,setTableData] = useState([]);
 
   useEffect(()=>{
-    
+    const res =  axios.get('display/list/');
+    if (res.status===201){
+      console.log(res);
+    }
+   
   },[])
 
   // Handle stock selection change
